@@ -2,13 +2,13 @@
     <div>
       <label for="formRadiobox">Form Radiobox:</label>
       <input type="radio" id="option1" value="option1" v-model="selectedOption" />
-      <label for="option1">Option 1</label>
+      <label for="option1">Maqsym</label>
       
       <input type="radio" id="option2" value="option2" v-model="selectedOption" />
-      <label for="option2">Option 2</label>
+      <label for="option2">Nuri</label>
       
       <input type="radio" id="option3" value="option3" v-model="selectedOption" />
-      <label for="option3">Option 3</label>
+      <label for="option3">Asset</label>
     </div>
   </template>
   
@@ -21,4 +21,10 @@
     },
   };
   </script>
+
+  <style>
+  label{
+    padding-right: 10px;
+  }
+</style>
   

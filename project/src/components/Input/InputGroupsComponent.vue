@@ -1,10 +1,10 @@
 <template>
     <div>
       <div>
-        <label for="username">Username:</label>
+        <!-- <label for="username">Username:</label> -->
         <div class="input-group">
           <span class="input-group-addon">@</span>
-          <input type="text" id="username" v-model="username" />
+          <input type="text" id="username" v-model="username" placeholder="username"/>
         </div>
       </div>
     </div>
@@ -21,10 +21,10 @@
   </script>
   
   <style>
-  .input-group {
+  /* .input-group {
     display: flex;
     align-items: center;
-  }
+  } */
   
   .input-group-addon {
     padding: 10px;

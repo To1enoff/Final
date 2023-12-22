@@ -3,10 +3,10 @@
       <form @submit.prevent="handleSubmit">
         <label for="name">Name:</label>
         <input type="text" id="name" v-model="name" />
-  
+        <br>
         <label for="email">Email:</label>
         <input type="email" id="email" v-model="email" />
-  
+        <br>
         <button type="submit">Submit</button>
       </form>
     </div>

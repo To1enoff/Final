@@ -36,6 +36,27 @@
       <CollapseComponent>
         <p>Lorem ipsum dolor sit amet consectetur.</p>
       </CollapseComponent>
+
+
+      <LabelsAndBadgeComponent labelText="Label" badgeText="Badge" />
+      <ProgressBarComponent progress="50" />
+      <TooltipsComponent tooltipText="This is a tooltip." />
+      <MessageBoxComponent messageText="This is a message." messageType="info" />
+      <ModalWindowComponent>
+        <p>This is the content of the modal window.</p>
+      </ModalWindowComponent>
+      <AlertComponent alertText="This is an alert." alertType="warning" />
+      <IconsComponent iconClass="fa-check" />
+      <ImageCarouselComponent :images="['image1.jpg', 'image2.jpg', 'image3.jpg']" />
+      <TableComponent :headers="['Name', 'Age', 'Country']" :data="[{id: 1, Name: 'John', Age: 30, Country: 'USA'}]" />
+      <ListComponent :items="[{id: 1, text: 'Item 1'}, {id: 2, text: 'Item 2'}]" />
+      <PageHeadersComponent pageTitle="Final Project" pageDescription="Explore and enjoy the features!" />
+      <PageFootersComponent />
+      <PageSidebarMenuComponent :menuItems="[
+        {id: 1, text: 'Home'},
+        {id: 2, text: 'About'},
+        {id: 3, text: 'Contact'},
+      ]" />
     </main>
 
     <footer>
@@ -71,6 +92,22 @@ import AccordionComponent from '@/components/Container/AccordionComponent.vue';
 import CollapseComponent from '@/components/Container/CollapseComponent.vue';
 
 
+
+import LabelsAndBadgeComponent from '@/components/Content/LabelsAndBadgeComponent.vue';
+import ProgressBarComponent from '@/components/Content/ProgressBarComponent.vue';
+import TooltipsComponent from '@/components/Content/TooltipsComponent.vue';
+import MessageBoxComponent from '@/components/Content/MessageBoxComponent.vue';
+import ModalWindowComponent from '@/components/Content/ModalWindowComponent.vue';
+import AlertComponent from '@/components/Content/AlertComponent.vue';
+import IconsComponent from '@/components/Content/IconsComponent.vue';
+import ImageCarouselComponent from '@/components/Content/ImageCarouselComponent.vue';
+import TableComponent from '@/components/Content/TableComponent.vue';
+import ListComponent from '@/components/Content/ListComponent.vue';
+import PageHeadersComponent from '@/components/Content/PageHeadersComponent.vue';
+import PageFootersComponent from '@/components/Content/PageFootersComponent.vue';
+import PageSidebarMenuComponent from '@/components/Content/PageSidebarMenuComponent.vue';
+
+
 export default {
   name: 'App',
   components: {
@@ -96,12 +133,26 @@ export default {
     CardComponent,
     AccordionComponent,
     CollapseComponent,
-    // Include other components as needed
+
+
+    LabelsAndBadgeComponent,
+    ProgressBarComponent,
+    TooltipsComponent,
+    MessageBoxComponent,
+    ModalWindowComponent,
+    AlertComponent,
+    IconsComponent,
+    ImageCarouselComponent,
+    TableComponent,
+    ListComponent,
+    PageHeadersComponent,
+    PageFootersComponent,
+    PageSidebarMenuComponent,
   },
   data() {
     return {
       accordionItems: [
-        { title: 'Item 1'},
+        { title: 'Item 1',open:true},
         { title: 'Item 2' },
         { title: 'Item 3' },
       ],
@@ -125,7 +176,6 @@ body {
 #app {
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
   background-color: antiquewhite;
 }
 
@@ -137,6 +187,9 @@ header, footer {
 
 main {
   padding: 20px;
+}
+main * {
+  margin-top: 10px;
 }
 
 /* Add more styling as needed */
