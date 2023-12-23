@@ -39,7 +39,7 @@
 
 
       <LabelsAndBadgeComponent labelText="Label" badgeText="Badge" />
-      <ProgressBarComponent progress="50" />
+      <ProgressBarComponent progress="74" />
       <TooltipsComponent tooltipText="This is a tooltip." />
       <MessageBoxComponent messageText="This is a message." messageType="info" />
       <ModalWindowComponent>
@@ -47,7 +47,7 @@
       </ModalWindowComponent>
       <AlertComponent alertText="This is an alert." alertType="warning" />
       <IconsComponent iconClass="fa-check" />
-      <ImageCarouselComponent :images="['image1.jpg', 'image2.jpg', 'image3.jpg']" />
+      <ImageCarouselComponent :images="['./assets/logo.svg', './img2.png', './img3.png']" />
       <TableComponent :headers="['Name', 'Age', 'Country']" :data="[{id: 1, Name: 'John', Age: 30, Country: 'USA'}]" />
       <ListComponent :items="[{id: 1, text: 'Item 1'}, {id: 2, text: 'Item 2'}]" />
       <PageHeadersComponent pageTitle="Final Project" pageDescription="Explore and enjoy the features!" />
@@ -57,6 +57,24 @@
         {id: 2, text: 'About'},
         {id: 3, text: 'Contact'},
       ]" />
+
+<SearchBar @search="handleSearch" />
+    <Breadcrumb :items="breadcrumbItems" />
+    <Pagination :totalPages="5" :currentPage="currentPage" @page-change="handlePageChange" />
+    <Tags @tag-change="handleTagChange" />
+    <ListGroup :items="listItems" />
+    <NavigationLinks :links="navLinks" />
+    <LinkGroups :linkGroups="linkGroups" />
+    <Navbar :items="navbarItems" />
+    <Tabs :tabs="tabItems" @tab-change="handleTabChange">
+      <!-- Tab Content -->
+      <div v-if="activeTab === 'Tab 1'">my name is Madiyar</div>
+      <div v-if="activeTab === 'Tab 2'">You K</div>
+    </Tabs>
+    <Drawers>
+      <!-- Drawer Content -->
+      <h3>Drawer Content</h3>
+    </Drawers>
     </main>
 
     <footer>
@@ -108,6 +126,18 @@ import PageFootersComponent from '@/components/Content/PageFootersComponent.vue'
 import PageSidebarMenuComponent from '@/components/Content/PageSidebarMenuComponent.vue';
 
 
+import SearchBar from '@/components/Navigation/SearchBar.vue';
+import Breadcrumb from '@/components/Navigation/Breadcrumb.vue';
+import Pagination from '@/components/Navigation/Pagination.vue';
+import Tags from '@/components/Navigation/Tags.vue';
+import ListGroup from '@/components/Navigation/ListGroup.vue';
+import NavigationLinks from '@/components/Navigation/NavigationLinks.vue';
+import LinkGroups from '@/components/Navigation/LinkGroups.vue';
+import Navbar from '@/components/Navigation/Navbar.vue';
+import Tabs from '@/components/Navigation/Tabs.vue';
+import Drawers from '@/components/Navigation/Drawers.vue';
+
+
 export default {
   name: 'App',
   components: {
@@ -148,6 +178,16 @@ export default {
     PageHeadersComponent,
     PageFootersComponent,
     PageSidebarMenuComponent,
+    SearchBar,
+    Breadcrumb,
+    Pagination,
+    Tags,
+    ListGroup,
+    NavigationLinks,
+    LinkGroups,
+    Navbar,
+    Tabs,
+    Drawers,
   },
   data() {
     return {
@@ -156,7 +196,58 @@ export default {
         { title: 'Item 2' },
         { title: 'Item 3' },
       ],
+      breadcrumbItems: ['Home', 'Category', 'Subcategory'],
+      currentPage: 1,
+      listItems: ['Item 1', 'Item 2', 'Item 3'],
+      navLinks: [
+        { text: 'Home', url: '/' },
+        { text: 'About', url: '/about' },
+        { text: 'Contact', url: '/contact' },
+      ],
+      linkGroups: [
+        {
+          title: 'Group 1',
+          links: [
+            { text: 'Link 1', url: '/link1' },
+            { text: 'Link 2', url: '/link2' },
+          ],
+        },
+        {
+          title: 'Group 2',
+          links: [
+            { text: 'Link 3', url: '/link3' },
+            { text: 'Link 4', url: '/link4' },
+          ],
+        },
+      ],
+      navbarItems: [
+        { text: 'Home', url: '/' },
+        { text: 'About', url: '/about' },
+        { text: 'Contact', url: '/contact' },
+      ],
+      tabItems: [
+        { text: 'Tab 1', value: 'Tab 1' },
+        { text: 'Tab 2', value: 'Tab 2' },
+      ],
+      activeTab: null,
     };
+    
+  },
+  methods: {
+    handleSearch(query) {
+      console.log('Search:', query);
+    },
+    handlePageChange(page) {
+      console.log('Page Change:', page);
+      this.currentPage = page;
+    },
+    handleTagChange(tags) {
+      console.log('Tags Change:', tags);
+    },
+    handleTabChange(tab) {
+      console.log('Tab Change:', tab);
+      this.activeTab = tab;
+    },
   },
   
 };
