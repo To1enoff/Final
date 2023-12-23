@@ -47,7 +47,7 @@
       </ModalWindowComponent>
       <AlertComponent alertText="This is an alert." alertType="warning" />
       <IconsComponent iconClass="fa-check" />
-      <ImageCarouselComponent :images="['./assets/logo.svg', './img2.png', './img3.png']" />
+      <ImageCarouselComponent :images="[image1, image2, image3]" />
       <TableComponent :headers="['Name', 'Age', 'Country']" :data="[{id: 1, Name: 'John', Age: 30, Country: 'USA'}]" />
       <ListComponent :items="[{id: 1, text: 'Item 1'}, {id: 2, text: 'Item 2'}]" />
       <PageHeadersComponent pageTitle="Final Project" pageDescription="Explore and enjoy the features!" />
@@ -67,14 +67,29 @@
     <LinkGroups :linkGroups="linkGroups" />
     <Navbar :items="navbarItems" />
     <Tabs :tabs="tabItems" @tab-change="handleTabChange">
-      <!-- Tab Content -->
       <div v-if="activeTab === 'Tab 1'">my name is Madiyar</div>
       <div v-if="activeTab === 'Tab 2'">You K</div>
     </Tabs>
     <Drawers>
-      <!-- Drawer Content -->
       <h3>Drawer Content</h3>
     </Drawers>
+
+    <SpinLoader />
+    <Divider />
+    <ImageView :imageUrl="image3" />
+    <Typography>typography is just text
+
+    </Typography>
+    <UserProfileImage :imageUrl = 'persik'/>
+    <DatePicker />
+    <GridSystem>
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </GridSystem>
+    <LineChart />
+    <BarChart />
+    <CircleChart />
     </main>
 
     <footer>
@@ -136,6 +151,24 @@ import LinkGroups from '@/components/Navigation/LinkGroups.vue';
 import Navbar from '@/components/Navigation/Navbar.vue';
 import Tabs from '@/components/Navigation/Tabs.vue';
 import Drawers from '@/components/Navigation/Drawers.vue';
+import image1 from '@/assets/img1.png'
+import image2 from '@/assets/img2.png'
+import image3 from '@/assets/img3.png'
+import kiwi from '@/assets/kiwi.jpg'
+import grusha from '@/assets/grusha.jpg'
+import persik from '@/assets/persik.jpg'
+
+
+import SpinLoader from '@/components/other/SpinLoader.vue';
+import Divider from '@/components/other/Divider.vue';
+import ImageView from '@/components/other/ImageView.vue';
+import Typography from '@/components/other/Typography.vue';
+import UserProfileImage from '@/components/other/UserProfileImage.vue';
+// import DatePicker from '@/components/other/DatePicker.vue';
+// import GridSystem from '@/components/other/GridSystem.vue';
+import LineChart from '@/components/other/LineChart.vue';
+// import BarChart from '@/components/other/BarChart.vue';
+import CircleChart from '@/components/other/CircleChart.vue';
 
 
 export default {
@@ -188,6 +221,17 @@ export default {
     Navbar,
     Tabs,
     Drawers,
+
+    SpinLoader,
+    Divider,
+    ImageView,
+    Typography,
+    UserProfileImage,
+    // DatePicker,
+    // GridSystem,
+    // LineChart,
+    // BarChart,
+    CircleChart,
   },
   data() {
     return {
@@ -198,7 +242,7 @@ export default {
       ],
       breadcrumbItems: ['Home', 'Category', 'Subcategory'],
       currentPage: 1,
-      listItems: ['Item 1', 'Item 2', 'Item 3'],
+      listItems: ['lll', 'lllll', 'lllllll'],
       navLinks: [
         { text: 'Home', url: '/' },
         { text: 'About', url: '/about' },
@@ -230,6 +274,12 @@ export default {
         { text: 'Tab 2', value: 'Tab 2' },
       ],
       activeTab: null,
+      image1,
+      image2,
+      image3,
+      kiwi,
+      grusha,
+      persik,
     };
     
   },
@@ -258,7 +308,6 @@ export default {
 template{
   background-color: aliceblue;
 }
-/* Your global styles go here */
 body {
   margin: 0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -283,5 +332,4 @@ main * {
   margin-top: 10px;
 }
 
-/* Add more styling as needed */
 </style>
